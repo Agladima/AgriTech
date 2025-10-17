@@ -1,7 +1,7 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../firebase";
+import { auth, googleProvider } from "../firebase"; // ✅ fixed import name
 
 export default function Login() {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ export default function Login() {
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const result = await signInWithPopup(auth, googleProvider);
+      const result = await signInWithPopup(auth, googleProvider); // ✅ updated variable name
       console.log("User logged in:", result.user);
       navigate("/dashboard"); // redirect after login
     } catch (error) {
@@ -113,7 +113,7 @@ const labelStyle = {
 
 const inputStyle = {
   padding: "12px 14px",
-  borderRadius: "6px",
+  borderRadius: "17px",
   border: "1px solid #ccc",
   fontSize: "15px",
   outline: "none",
@@ -125,7 +125,7 @@ const loginBtnStyle = {
   border: "none",
   padding: "12px 0",
   fontSize: "16px",
-  borderRadius: "6px",
+  borderRadius: "17px",
   cursor: "pointer",
 };
 
@@ -136,7 +136,7 @@ const googleBtnStyle = {
   padding: "10px 0",
   width: "100%",
   fontSize: "16px",
-  borderRadius: "6px",
+  borderRadius: "17px",
   cursor: "pointer",
   display: "flex",
   alignItems: "center",

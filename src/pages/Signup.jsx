@@ -1,7 +1,7 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithPopup } from "firebase/auth";
-import { auth, provider } from "../firebase"; // make sure firebase.js is in src/
+import { auth, googleProvider } from "../firebase";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ export default function Signup() {
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const result = await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, googleProvider);
       console.log("User signed in:", result.user);
       navigate("/dashboard"); // redirect after success (change to your desired page)
     } catch (error) {
